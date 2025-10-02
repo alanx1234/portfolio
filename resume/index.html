@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alan Xia — Resume</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <nav aria-label="Main">
+    <a href="index.html">Home</a> |
+    <a href="projects/index.html">Projects</a> |
+    <a href="contact/index.html">Contact</a> |
+    <a href="resume/index.html">Resume</a> |
+    <a href="https://github.com/alanx1234" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+  <header>
+    <h1>Alan Xia</h1>
+    <address class="meta">
+      <a href="mailto:alxia@ucsd.edu">alxia@ucsd.edu</a> ·
+      <a href="tel:+19253070199">(925) 307-0199</a>
+    </address>
+  </header>
+  <section >
+    <h2 id="edu">Education</h2>
+    <article class="grid">
+      <strong>University of California, San Diego</strong>
+      <div class="right">
+        <time datetime="2027-03">Winter 2027</time>
+      </div>
+      <div class="meta">B.S., Data Science · GPA: 4.0/4.0</div>
+      <div></div>
+      <div><strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Practice and Applications of Data Science, Machine Learning: Learning Algorithms, Artificial Intelligence: Probabilistic Methods, Software Construction</div>
+    </article>
+  </section>
+  <section>
+    <h2 id="exp">Professional Experience</h2>
+
+    <article>
+      <div class="grid">
+        <strong>Undergraduate Research Assistant, Duarte Lab @ UCSD</strong>
+        <div class="right">
+          <time datetime="2025-03">Mar 2025</time> – <time datetime="9999-12">Present</time>
+        </div>
+      </div>
+      <div class="meta">Particle-based transformer jet-tagging research</div>
+      <ul>
+        <li>Used Kubernetes Job YAML manifests to run distributed PyTorch training/fine-tuning on a 4-node NVIDIA A100 cluster; streamed logs to a mounted PVC for real-time debugging.</li>
+        <li>Revamped PyTorch data loader with an in-RAM tensor cache and an LRU file-handle cache (two-level cache), cutting memory usage and improving data loading speed by 10×.</li>
+        <li>Precomputed and cached “subjet” clustering assignments, eliminating redundant calls and reducing preprocessing time per sample from 16s to 0.05s.</li>
+      </ul>
+    </article>
+
+    <article>
+      <div class="grid">
+        <strong>Software Engineer Intern, WeBox</strong>
+        <div class="right">
+          <time datetime="2023-06">Summer 2023</time>
+        </div>
+      </div>
+      <div class="meta">Virtual Kitchen &amp; Group Catering Service</div>
+      <ul>
+        <li>Enhanced resume screening by integrating the BreezyHR API with a custom filtering algorithm to match desired candidate qualifications.</li>
+        <li>Implemented MVC architecture with Java Spring Boot to update real-time inventory statistics in the partner admin system.</li>
+        <li>Designed and integrated 50+ customized ads/banners in the frontend, increasing traffic and partner visibility.</li>
+        <li>Negotiated with restaurant owners to secure and onboard two new partnerships.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section">
+    <h2 id="skills">Languages &amp; Technologies</h2>
+    <ul>
+      <li>Python, Java, C++, Git, Pandas</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="projects">Projects</h2>
+    <article>
+      <div class="grid">
+        <strong>Summoner Insights — Predictive Modeling Project</strong>
+        <div class="right"><time datetime="2025-04">Spring 2025</time></div>
+      </div>
+      <div class="meta">DSC 80 (Practice and Application of Data Science)</div>
+      <ul>
+        <li>Processed a 150,000+ row dataset into team-level records; performed EDA, hypothesis testing, and missingness analysis to identify reliable predictors.</li>
+        <li>Built an end-to-end <code>scikit-learn</code> Pipeline with a Random Forest classifier; tuned with GridSearchCV (5-fold CV), improving baseline accuracy from 88% to 95% and analyzing feature importance.</li>
+        <li>Ran a fairness analysis via permutation testing to assess performance across leagues; found consistent generalization.</li>
+      </ul>
+    </article>
+  </section>
+</body>
+</html>
