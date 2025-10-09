@@ -1,6 +1,233 @@
+html {
+  --color-accent: oklch(75% 0.18 290); 
+  accent-color: var(--color-accent);
+}
+
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
   font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+nav ul,
+nav li {
+  display: contents;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: stretch;
+  border-bottom: 1px solid oklch(80% 3% 200); 
+  margin-bottom: 1rem;
+}
+
+nav a {
+  flex: 1;
+  text-align: center;         
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;      
+  color: inherit;             
+  padding: 0.5em;        
+}
+
+nav a.current {
+  border-bottom: 0.4em solid oklch(85% 3% 200); 
+  padding-bottom: 0.1em; 
+}
+
+img {
+  display: block;           
+  margin-inline: auto;    
+  max-width: 100%;         
+  height: auto;             
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+button {
+  grid-column: 1 / -1;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+}
+
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;            
+}
+
+.projects h2 {
+  margin: 0; 
+}
+
+h1 {
+  font-size: 400%; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;     
+  text-wrap: balance;   
+}
+
+header {
+  margin-block: 2rem 1rem;
+}
+header h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0;
+}
+header .meta,
+address.meta {
+  font-style: normal;
+  color: oklch(42% 0.02 200); 
+  margin-top: .25rem;
+}
+header .meta a { color: inherit; text-decoration: none; }
+
+
+section > h2 {
+  margin: 2rem 0 .75rem;
+  padding-bottom: .25rem;
+  border-bottom: 2px solid oklch(from var(--color-accent) 80% 0.08 h); 
+  font-weight: 700;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: .25rem 1rem;
+}
+
+
+.right {
+  color: oklch(42% 0.02 200);
+  white-space: nowrap;
+  text-align: right;
+}
+
+
+.meta {
+  color: oklch(42% 0.02 200);
+  margin-top: .25rem;
+}
+
+article ul {
+  margin: .5rem 0 1.25rem;
+  padding-left: 1.25rem;
+}
+article li { margin-bottom: .4rem; }
+article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .95em;
+  background: oklch(96% 0 0);
+  padding: 0 .25em;
+  border-radius: .25em;
+}
+
+#skills + ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .75rem;
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 1.5rem;
+}
+#skills + ul li {
+  background: oklch(from var(--color-accent) 90% 0.06 h);
+  color: oklch(35% 0.05 200);
+  border: none;
+  border-radius: 999px;
+  padding: .25rem .75rem;
+  font-weight: 500;
+}
+@media print {
+  nav { display: none; }
+  body { max-width: 7.5in; padding: 0; }
+  section > h2 { border: 0; margin-top: 1.25rem; }
+}
+
+/* Mobile tweaks */
+@media (max-width: 48rem) {
+  .grid { grid-template-columns: 1fr; }
+  .right { text-align: left; margin-top: .15rem; }
+}
+.resume-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.resume-header h1 {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2em;
+}
+
+.resume-header .meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.resume-header .meta {
+  font-style: normal;
+  font-size: 1rem;
+}
+.edu {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "school term"
+    "major  gpa"
+    "cw     cw";
+  gap: .25rem 1rem;
+  align-items: baseline;
+}
+
+.edu strong { font-weight: 600; }
+
+.edu > strong { grid-area: school; }
+.edu > .right { grid-area: term; text-align: right; color: oklch(42% 0.02 200); }
+
+.edu .meta-left { grid-area: major; color: oklch(42% 0.02 200); }
+.edu .meta-right { grid-area: gpa; text-align: right; color: oklch(42% 0.02 200); }
+
+.edu .coursework { grid-area: cw; }
+
+#skills + ul li:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: translateY(-2px); 
+  box-shadow: 0 2px 6px oklch(70% 0.1 290 / 0.4); 
+  cursor: default;
 }
