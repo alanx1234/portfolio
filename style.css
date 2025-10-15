@@ -1,6 +1,7 @@
 html {
   --color-accent: oklch(75% 0.18 290); 
   accent-color: var(--color-accent);
+   color-scheme: light dark;
 }
 
 body {
@@ -19,8 +20,9 @@ nav {
   display: flex;
   justify-content: space-between; 
   align-items: stretch;
-  border-bottom: 1px solid oklch(80% 3% 200); 
   margin-bottom: 1rem;
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -48,7 +50,7 @@ img {
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 input,
@@ -230,4 +232,12 @@ article code {
   transform: translateY(-2px); 
   box-shadow: 0 2px 6px oklch(70% 0.1 290 / 0.4); 
   cursor: default;
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
 }

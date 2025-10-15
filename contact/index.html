@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <title>Contact</title>
 </head>
 <body>
-    <nav>
-        <a href="../index.html">Home</a> 
-        <a href="../projects/">Projects</a> 
-        <a href="../contact/" class = "current">Contact</a> 
-        <a href="../resume/">Resume</a> 
-        <a href="https://github.com/alanx1234" target="_blank">GitHub</a>
-    </nav>
-    <h1> Contact me</h1>
-    <form action = "mailto:alxia@ucsd.edu" method = "POST" enctype = "text/plain">
-        <label> 
-            Email:
-            <input name = "email" type = "email">
-        </label>
-        <label>
-            Subject:
-            <input name="subject">
-        </label>
-        <label>
-            Message:
-            <textarea name="body"></textarea>
-        </label>
-        
-        <button> Submit </button>
-    </form>
+  <h1>Contact me</h1>
+  <form action="mailto:alxia@ucsd.edu">
+    <label>
+      Subject:
+      <input name="subject" required>
+    </label>
+    <label>
+      Message:
+      <textarea name="body" required></textarea>
+    </label>
+    <button type="submit">Send</button>
+  </form>
+  <script type="module" src="../global.js"></script>
 </body>
 </html>
