@@ -83,7 +83,7 @@ form?.addEventListener('submit', (event) => {
 export async function fetchJSON(url) {
   try {
     const response = await fetch(url, { cache: 'no-store' });
-    console.log(response); // Inspect in DevTools
+    console.log(response); 
     if (!response.ok) {
       throw new Error(`Failed to fetch projects: ${response.status} ${response.statusText}`);
     }

@@ -247,7 +247,7 @@ article code {
   border-radius: 12px;
   padding: 1rem 1.25rem;
   margin-block: 1.25rem 2rem;
-  background: canvas; /* respects light/dark */
+  background: canvas; 
 }
 
 #profile-stats h2 {
@@ -270,7 +270,7 @@ article code {
 #profile-stats dt {
   grid-row: 1;
   margin: 0;
-  color: oklch(42% 0.02 200); /* matches .meta/.right */
+  color: oklch(42% 0.02 200); 
   text-transform: uppercase;
   letter-spacing: .06em;
   font-size: .8rem;
@@ -283,11 +283,9 @@ article code {
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   line-height: 1.1;
-  /* scale similar to your h1/h2 rhythm, but responsive */
   font-size: clamp(1.4rem, 3.5vw, 2.25rem);
 }
 
-/* Stack nicely on small screens */
 @media (max-width: 700px) {
   #profile-stats dl { grid-template-columns: repeat(2, 1fr); }
 }
