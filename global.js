@@ -79,3 +79,41 @@ form?.addEventListener('submit', (event) => {
   const url = form.action + (params.length ? `?${params.join('&')}` : '');
   location.href = url; 
 });
+
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url, { cache: 'no-store' });
+    console.log(response); // Inspect in DevTools
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.status} ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+    throw error;
+  }
+}
+
+
+export function renderProjects(project, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = '';
+
+  const list = Array.isArray(project) ? project : [project];
+
+  for (const p of list) {
+    const article = document.createElement('article');
+    const originBase = window.location.origin + BASE_PATH;  
+
+    article.innerHTML = `
+      <${headingLevel}>${p.title}</${headingLevel}>
+      <img src="${p.image}" alt="${p.title}">
+      <p>${p.description}</p>
+    `;
+    containerElement.appendChild(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}

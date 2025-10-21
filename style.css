@@ -241,3 +241,53 @@ article code {
   font-size: 80%;
   font-family: inherit;
 }
+
+#profile-stats {
+  border: 1px solid oklch(80% 0.03 200);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-block: 1.25rem 2rem;
+  background: canvas; /* respects light/dark */
+}
+
+#profile-stats h2 {
+  margin: 0 0 .6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: balance;
+  font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+  border-bottom: 2px solid oklch(from var(--color-accent) 80% 0.08 h);
+  padding-bottom: .25rem;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .35rem 2rem;
+  align-items: end;
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  margin: 0;
+  color: oklch(42% 0.02 200); /* matches .meta/.right */
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1.1;
+  /* scale similar to your h1/h2 rhythm, but responsive */
+  font-size: clamp(1.4rem, 3.5vw, 2.25rem);
+}
+
+/* Stack nicely on small screens */
+@media (max-width: 700px) {
+  #profile-stats dl { grid-template-columns: repeat(2, 1fr); }
+}
