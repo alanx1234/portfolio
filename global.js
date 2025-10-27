@@ -103,7 +103,6 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
 
   for (const p of list) {
     const article = document.createElement('article');
-    const originBase = window.location.origin + BASE_PATH;  
 
     article.innerHTML = `
       <${headingLevel}>${p.title}</${headingLevel}>
