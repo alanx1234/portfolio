@@ -289,3 +289,111 @@ article code {
 @media (max-width: 700px) {
   #profile-stats dl { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+.container {
+  display: flex;
+  align-items: center;  
+  gap: 1rem;             
+  margin-bottom: 2rem;  
+}
+
+#projects-pie-plot { 
+  max-width: 20em; 
+  flex: 0 0 auto;       
+}
+
+
+.legend {
+  flex: 1;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;                 /* 1 column (stacked) by default */
+  gap: .5rem 1rem;                            /* row gap | column gap */
+  align-content: start;
+  padding: 0.75rem 1rem 1.25rem;
+  margin: 1rem 0 2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* at medium widths: 2 columns (≈ 3 rows for 6 items) */
+@media (min-width: 640px) {
+  .legend {
+    grid-template-columns: repeat(2, minmax(9em, 1fr));
+  }
+}
+
+/* optional: at large widths: 3 columns */
+@media (min-width: 920px) {
+  .legend {
+    grid-template-columns: repeat(3, minmax(9em, 1fr));
+  }
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;       
+}
+
+.legend-item .swatch {
+  display: inline-block;
+  width: 0.9em;
+  aspect-ratio: 1 / 1;
+  background: var(--color);
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.12);
+}
+
+.searchBar {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 0.75rem 2.25rem 0.75rem 0.9rem; 
+  border: 2px solid oklch(50% 0.08 260);
+  border-radius: 10px;
+  background: canvas;
+  color: inherit;
+  margin: 1rem 0 0.75rem;
+}
+
+.searchBar::placeholder {
+  color: oklch(50% 0.03 200);
+}
+
+.searchBar:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.searchBar::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background: currentColor;
+  mask: radial-gradient(circle 0.45rem at 50% 50%, transparent 48%, #000 49%);
+  opacity: .35;
+  cursor: pointer;
+}
+.searchBar:focus::-webkit-search-cancel-button { opacity: .55; }
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+path {
+  transition: 300ms;
+}
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+path { cursor: pointer; }
