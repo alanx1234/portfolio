@@ -95,11 +95,10 @@ function renderPieChart(projectsGiven) {
 
 
 let query = '';
-let searchInput = document.querySelector('.searchBar');
 renderPieChart(projects);
+let searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('input', (event) => {
   query = event.target.value;
   renderPieChart(projects);   
 });
-
