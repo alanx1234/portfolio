@@ -397,3 +397,222 @@ path {
   }
 }
 path { cursor: pointer; }
+
+#stats { margin: 18px 0 14px; }
+
+#stats > h2 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+dl.stats.tiles {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 36px;         
+  row-gap: 6px;             
+  padding: 18px 22px;
+  border: 1px solid #e6e8eb;
+  border-radius: 12px;
+  background: #fff;
+  align-items: end;         
+  text-align: center;       
+}
+
+
+dl.stats.tiles dt {
+  grid-row: 1;
+  margin: 0;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+dl.stats.tiles dd {
+  margin: 0;
+  font-size: 1.6rem;  
+  line-height: 1.15;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.figure-caption {
+  margin-top: 10px;
+  padding: 10px 14px;
+  font-size: .95rem;
+  color: #111827;
+  background: #f3f4f6;
+  border-top: 1px solid #e6e8eb;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.gridlines line { stroke: #e5e7eb; stroke-opacity: .6; }
+.gridlines path { display: none; }
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .25rem .75rem;
+  margin: 0;
+}
+dl.info dt { margin: 0; color: #6b7280; }
+dl.info dd { margin: 0; }
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: #fff;
+  border: 1px solid #e6e8eb;
+  border-radius: 8px;
+  padding: .6rem .8rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  z-index: 1000;
+}
+
+
+.gridlines { pointer-events: none; }
+.gridlines line { stroke: #e5e7eb; stroke-opacity: .6; }
+.gridlines path { display: none; }
+
+
+dl.info.tooltip {
+  position: fixed;
+  top: 1em; left: 1em;
+  padding: .6rem .8rem;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  border: 1px solid #e6e8eb;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  z-index: 1000;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .3rem .8rem;
+  margin: 0;
+}
+dl.info dt { margin: 0; color: #6b7280; font-weight: 600; }
+dl.info dd { margin: 0; color: #0f172a; }
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+circle:hover { transform: scale(1.5); }
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+#lang-panel {
+  border: 1px solid #e6e8eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 16px 0 24px;
+  background: #fff;
+}
+
+#lang-panel h2 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 2px solid oklch(from var(--color-accent) 80% 0.08 h);
+  padding-bottom: .25rem;
+}
+
+dl.lang {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: .5rem 1rem;
+  align-items: center;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  dl.lang { grid-template-columns: 1fr; }
+}
+
+dl.lang dt {
+  margin: 0;
+  color: #0f172a;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+dl.lang dt .swatch {
+  width: .9em;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.12);
+  background: var(--color, #94a3b8);
+}
+
+dl.lang dd {
+  margin: 0;
+}
+
+
+.lang .bar {
+  height: 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  overflow: hidden;
+  position: relative;
+}
+
+.lang .bar .fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color, #64748b);
+  border-radius: 999px;
+  transition: width 260ms ease;
+}
+
+.lang .meta {
+  display: flex;
+  gap: .75rem;
+  align-items: baseline;
+  margin-top: .3rem;
+  color: #475569;
+  font-size: .9rem;
+}
+
+.lang .meta .pct {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.lang .meta .count {
+  font-variant-numeric: tabular-nums;
+  opacity: .85;
+}
