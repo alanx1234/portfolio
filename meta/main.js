@@ -115,7 +115,7 @@ function renderScatterPlot(data, commits) {
     .attr('transform', `translate(${usableArea.left}, 0)`);
 
     const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
-    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([5, 20]); // adjust these values based on your experimentation
+    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([9, 20]); // adjust these values based on your experimentation
 
     const dots = svg.append('g').attr('class', 'dots');
 
