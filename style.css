@@ -616,3 +616,13 @@ dl.lang dd {
   font-variant-numeric: tabular-nums;
   opacity: .85;
 }
+
+.stealth-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Optional: subtle affordance on hover/focus without changing color */
+.stealth-link:hover { text-decoration: underline; }
+.stealth-link:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }

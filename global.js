@@ -97,18 +97,25 @@ export async function fetchJSON(url) {
 }
 
 
-export function renderProjects(project, containerElement, headingLevel = 'h2') {
-  containerElement.innerHTML = '';
+export function renderProjects(project, containerElement, headingLevel = "h2") {
+  containerElement.innerHTML = "";
 
   const list = Array.isArray(project) ? project : [project];
 
   for (const p of list) {
-    const article = document.createElement('article');
+    const titleHTML = p.url
+      ? `<a class="stealth-link" href="${p.url}" target="_blank" rel="noopener noreferrer">${p.title}</a>`
+      : p.title;
 
+    const imgHTML = p.image ? `<img src="${p.image}" alt="${p.title}">` : "";
+
+    const descHTML = p.description ? `<p>${p.description}</p>` : "";
+
+    const article = document.createElement("article");
     article.innerHTML = `
-      <${headingLevel}>${p.title}</${headingLevel}>
-      <img src="${p.image}" alt="${p.title}">
-      <p>${p.description}</p>
+      <${headingLevel}>${titleHTML}</${headingLevel}>
+      ${imgHTML}
+      ${descHTML}
     `;
     containerElement.appendChild(article);
   }
